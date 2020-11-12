@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="addFn_my()">加1</button>
+    <button onclick="reduceFn()">减1</button>
+    <h1 id="h1Title"></h1>
+    <script src="./my_redux.js"></script>
+    <script>
+        const emumObj = {IN:'IN',DECREM:'DECREM'}
+        function counter(state=0,action){
+            switch(action.type){
+                case emumObj.IN:return state+1;
+                case emumObj.DECREM:return state-1;
+            }
+        }
+        let myStore = window.my_redux.createStore(counter,10);
+        setTitle();
+        function addFn_my(){
+            myStore.dispatch({type:emumObj.IN});
+        }
+        function reduceFn(){
+            myStore.dispatch({type:emumObj.DECREM});
+        }
+        myStore.subscribe(()=>{
+            setTitle()
+        })
+        function setTitle(val){
+            document.getElementById('h1Title').innerHTML=myStore.getState();
+        }
+    </script>
+</body>
+</html>

@@ -4,6 +4,6 @@ export default class Index extends React.Component{
         alert('一起来玩的阿萨德的啊')
     }
     render(){
-        return <h1 onClick={this.onClickFn}>hello word</h1>
+        return <h1 onClick={this.onClickFn}>首页</h1>
     }
 }

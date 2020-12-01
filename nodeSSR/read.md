@@ -7,6 +7,11 @@ webpack webpack-cli  //webpack两个核心代码
 koa2  // web开发框架
 koa-static  //实现静态资源的访问
 
+
+css-loader //css编译器
+postcss-loader //css样式前缀自动填充
+less-loader //less编译器
+
 服务启动和自启  使用工具nodemon
 项目目录
 |--dist  //生产环境打包后的资源存放目录

@@ -3,16 +3,21 @@ var url =require("url"); //引入url模块
 let fs = require("fs")
 
 import React from  'react';
-import Index from '../../client/pages/Index';
+import {StaticRouter,Route} from 'react-router-dom';
+import App from '../../client/router/index';
+import routeList from '../../client/router/router-config';
 import {renderToString} from 'react-dom/server';
 
 let staticPath = __dirname+"\\..\\static"
 
 export default (request,respnse) => {
     let path = url.parse(request.url).pathname;
+    console.log('path=====',path)
     let string = "nothing"
-    if(path === '' || path === '/'){
-        const html = renderToString(<Index />)
+    if(path === '/favicon.icon') return;
+        const html = renderToString(<StaticRouter location={path}>
+            <App routeList={routeList}></App>
+        </StaticRouter>)
         string = `<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -27,22 +32,6 @@ export default (request,respnse) => {
         </body>
         </html>
         `;
-    }else{
-        console.log('---------------')
-        path = staticPath+path
-        path = path.replace(/\\/g,"/");
-        console.log(path)
-        try {
-            let data = fs.readFileSync(path, 'utf-8');
-            console.log(data)
-            if(data != ''){
-                string = data
-            }
-        } catch (error) {
-            //string = error
-        }
-
-    }
     respnse.end(string)
     return 0
 }

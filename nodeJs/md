@@ -1,0 +1,28 @@
+supervisor  --Nodejs自启动工具
+  npm install -g supervisor
+
+核心模块：HTTP模块，URL模块
+
+npm init --yes  生成package.json  配置node模块引入入口
+CommonJs规范的包目录一般包含如下文件：
+  package.json 包描述文件
+  bin：存放可执行二进制文件的目录
+  lib：存放js代码目录
+  doc：存放文档目录
+
+dependencie:配置当前程序所依赖的其他包
+devDependencide:配置当前程序所依赖的其他包，比如一些工具类
+^表示第一位版本号不变，后面两位取最新的
+～表示前两位不变，最后一个取最新
+*表示全部取最新的
+
+fs文件操作
+  fs.stat  检测是文件还是目录
+  fs.mkdir 创建目录
+  fs.writeFile 创建写入文件
+  fs.appendFile 追加文件
+  fs.readFile 读取文件
+  fs.readdir 读取目录
+  fs.rename 重命名/移动文件
+  fs.rmdir 删除目录
+  fs.unlink 删除文件

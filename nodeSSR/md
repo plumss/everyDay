@@ -1,0 +1,22 @@
+安装react库 npm i react react-dom
+安装babel库 npm i @babel/core @babel/cli @babel/preset-react @babel/plugin-proposal-class-properties
+@babel/preset-env
+node自启动库 npm i nodemon
+安装静态资源服务区库 npm i koa koa-static
+安装打包工具 npm i webpack webpack-cli
+安装jsx编辑js库 npm i babel-loader
+npm run babel 把指定的文件通过babel转为为js并输出
+npm run babel-node 编译node端es6代码
+npm run run-app 启动ssr本地服务器
+
+手动编译打包前端代码 npm run dev
+手动编译打包ssr服务端代码 npm run babel-node
+启动ssr服务器  npm run run-app
+
+project-tree vscode梳理项目目录结构工具
+npm i webpack-node-externals  排除不需要打包的模块
+启动开发环境入口：npm run cilent:dev
+前端代码编译开启watch:npm run fe:watch
+服务端代码打包配置：npm run svr:watch
+
+"fe:watch":"webpack --config webpack/scripts/client-code-watch.js",

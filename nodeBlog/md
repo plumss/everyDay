@@ -8,8 +8,19 @@ pageage.json devDependencies:--D 发布包不会被下载  dependencies 中的�
     fe:watch  客户端服务启动 打包
     svr:watch ssr服务端启动 打包
     npm run svrDev  自启动ssr渲染打包的最终文件
+    npm run svrStart 自启动服务器打包的最终文件
 引入包：nodemon node热更新
 
+npm-run-all 工具同时并行多个npm命令 npm-run-all fe:watch svr:watch
 
+统一规范：
+    eslint  npm i -D babel-eslint eslint eslint-config-airbnb-base eslint-plugin-import
+    配置.eslintrc文件
 目标：实现一个服务器端渲染的博客网站，react+router+redux作为客户端技术栈，node作为服务端技术栈，mysql作为数据库
 实现功能模块：博客列表，新增博客，删除博客，更新博客，用户登录
+
+同构路由：
+
+webapck引入样式报错：No template for dependency: CssDependency
+原因：webpack5.0以上不支持开发环境miniCssExtractPlugin
+

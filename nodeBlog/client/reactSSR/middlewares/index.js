@@ -11,7 +11,6 @@ import {renderToString} from 'react-dom/server';
 let staticPath = __dirname+"\\..\\static"
 
 export default (req,res) => {
-    console.log('dadasds')
     let path = url.parse(req.url).pathname;
     let string = "nothing"
     if(path === '/favicon.icon') return;
@@ -24,11 +23,11 @@ export default (req,res) => {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Document</title>
+            <title>dd</title>
         </head>
         <body>
-            <div id='root'>${html}111</div>
-            <script type="text/javascript"  src="index.js"></script>
+            <div id='root'>${html}</div>
+            <script type="text/javascript" src="index.js"></script>
         </body>
         </html>
         `;

@@ -2,7 +2,7 @@ const { spawn } = require('child_process');//用于创建子进程
 const constantCode = require('./constant');
 const chalk = require('chalk'); //为控制台输出的信息增加点色彩
 const log = console.log;
-const proConfig = require('../../shareConfig');//引入双端配置文件，配置一些基础参数
+const proConfig = require('../../../shareConfig');//引入双端配置文件，配置一些基础参数
 const nodeServerPort = proConfig.nodeServerPort;
 log(chalk.red('servers starting....'));
 //前端代码构建 服务进程
@@ -22,7 +22,7 @@ function print(data){
     if(str.indexOf(constantCode.SVRCODECOMPLETED)>-1){
         startNodeServer(); //重启node服务
     }else{
-        console.log('print=====',str);
+        //console.log('print=====',str);
     }
 }
 //监听服务端代码构建服务的对外输出 stdout事件

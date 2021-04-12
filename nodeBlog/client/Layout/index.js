@@ -1,16 +1,14 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-
-export default class Layout extends React.Component{
-    render(){
+//import './index.css'
+export default function(props){
         return(
-            <Fragment>
-                <div className="commonContent">{this.props.children}</div>
-                <div className="commonFooter">
-                    <Link to="/home">首页1111</Link>
-                    <Link to="/detail">详情</Link>
+            <>
+                <div className="commonContent">{props.children}</div>
+                <div>
+                    <Link to="/home" style={{marginRight:'10px'}}>首页1111</Link>
+                    <Link to="/detail">详情22211</Link>
                 </div>
-            </Fragment>
+            </>
         )
-    }
 }

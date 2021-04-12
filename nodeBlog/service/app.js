@@ -8,7 +8,7 @@ const serverHandle = (req,res) => {
         fs.readFile(`./static${pathName}`, (err, data) => {
             if (err) {
                 res.writeHead(404, { 'Content-type': "text/plain;charset=utf-8" })
-                res.end("首页界面")
+                res.end("首页界面1111")
             }
             let extname = path.extname(pathName); //获取后缀名
             let isFile = fileType[extname]

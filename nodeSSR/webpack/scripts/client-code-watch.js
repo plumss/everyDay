@@ -1,10 +1,9 @@
+
+
 //基于webpack配置 开启对服务器端代码的编译和监听
 const webpack = require('webpack');
-const config = require('../webpack.svr.config');
-const constantCode = require('./constant');
-config.mode = 'development';
+const config = require('../webpack.dev.config');
 const compiler = webpack(config);
-
 const watching = compiler.watch({
     aggregateTimeout:300, //类似节流功能，聚合多个更改一起构建
     ignored:/node_modules/, //排除文件
@@ -23,16 +22,15 @@ const watching = compiler.watch({
         })
     }
     //定义一个常量,编译完成后，通知主进程重启node服务,主进程通过此标志来进行判断是否重启
-    global.isEnd='SVRCODECOMPLETED'
-    console.log('服务器端代码监听：',constantCode.SVRCODECOMPLETED);
+    console.log('前端代码监听：');
 });
-console.log(11111111111)
-compiler.hooks.done.tap('done',(data)=>{
-    //console.log('\n svr code done',data); //编译完成动作
-});
-//收到退出信号 退出自身进程
-process.stdin.on('data',(data)=>{
-    if(data.toString()==='exit'){
-        process.exit();
-    }
-});
+
+
+
+
+// //收到退出信号 退出自身进程
+// process.stdin.on('data',(data)=>{
+//     if(data.toString()==='exit'){
+//         process.exit();
+//     }
+// });
